@@ -12,7 +12,7 @@ include 'includes/header.php';
 	<div img="assets/img/bg.png">
         <div class="container">
 			<h1>About Me</h1>
-			<p>Hello and welcome to my website! My name is Rodlyn Mahilum, a 2nd-year BSIT student,
+			<p>Hello and welcome to my website! My name is asdhelp, a 2nd-year BSIT student,
 			currently focused on my studies while also trying to make the most out of my university experience. 
 			</p>
 			<p>I am passionate about myself but I can also be mean if being tempted by my surroundings.

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2023 at 07:45 AM
+-- Generation Time: May 26, 2023 at 07:05 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,42 +24,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblcustomer`
+-- Table structure for table `tblservicerecord`
 --
 
-CREATE TABLE `tblcustomer` (
-  `CustomerID` int(5) NOT NULL,
-  `OwnerName` varchar(20) NOT NULL,
-  `Address` varchar(20) NOT NULL,
-  `ContactNumber` int(15) NOT NULL
+CREATE TABLE `tblservicerecord` (
+  `id` int(11) NOT NULL,
+  `servicename` varchar(120) DEFAULT NULL,
+  `servicedescription` varchar(120) DEFAULT NULL,
+  `price` varchar(120) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblmedicalrecord`
+-- Dumping data for table `tblservicerecord`
 --
 
-CREATE TABLE `tblmedicalrecord` (
+INSERT INTO `tblservicerecord` (`id`, `servicename`, `servicedescription`, `price`) VALUES
+(1, 'asd', 'asd', 'asd');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblservicerecord`
+--
+
+CREATE TABLE `tblservicerecord` (
   `id` int(11) NOT NULL,
-  `dog_ID` int(5) NOT NULL,
-  `ownername` varchar(25) NOT NULL,
-  `customer_ID` int(5) NOT NULL,
-  `veterinarian_ID` int(5) NOT NULL,
-  `date_of_treatment` datetime(6) NOT NULL
+  `servicename` varchar(120) DEFAULT NULL,
+  `servicedescription` varchar(120) DEFAULT NULL,
+  `price` varchar(120) DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tblmedicalrecord`
---
-
-INSERT INTO `tblmedicalrecord` (`id`, `dog_ID`, `ownername`, `customer_ID`, `veterinarian_ID`, `date_of_treatment`) VALUES
-(1, 1, 'Rodlyn', 1, 1, '0000-00-00 00:00:00.000000'),
-(2, 2, 'Emman', 2, 2, '0000-00-00 00:00:00.000000'),
-(3, 3, 'Ryan', 3, 3, '0000-00-00 00:00:00.000000'),
-(4, 4, 'Angelo', 4, 4, '0000-00-00 00:00:00.000000'),
-(5, 5, 'Mimi', 5, 5, '0000-00-00 00:00:00.000000'),
-(6, 6, 'Gabriel', 6, 6, '0000-00-00 00:00:00.000000');
 
 -- --------------------------------------------------------
 
@@ -81,16 +76,16 @@ CREATE TABLE `tbluseraccount` (
 
 INSERT INTO `tbluseraccount` (`userid`, `username`, `password`, `firstname`, `lastname`) VALUES
 (1, 'q', 1, 'ryan', 'marfa'),
-(2, 'rods', 12, 'Rodlyn', 'Mahilum');
+(2, 'qwe', 0, 'qwe', 'qwe');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tblmedicalrecord`
+-- Indexes for table `tblservicerecord`
 --
-ALTER TABLE `tblmedicalrecord`
+ALTER TABLE `tblservicerecord`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -104,10 +99,10 @@ ALTER TABLE `tbluseraccount`
 --
 
 --
--- AUTO_INCREMENT for table `tblmedicalrecord`
+-- AUTO_INCREMENT for table `tblservicerecord`
 --
-ALTER TABLE `tblmedicalrecord`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `tblservicerecord`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tbluseraccount`

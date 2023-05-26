@@ -3,7 +3,7 @@
         <div class="row">
             <div class="credits ml-auto">
                 <span class="copyright">
-                    Rodlyn Mahilum - G3
+                    qwe - G3
                 </span>
             </div>
         </div>

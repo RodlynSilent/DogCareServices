@@ -2,13 +2,15 @@
 require_once 'db_helper.php';
 
 $deleteMapping = [
-    'medical_record_id' => 'delete_medical_record',
+    'medical_record_id' => 'deleteMedicalRecord',
+    'id' => 'delete_service_record',
 ];
+
+$db = new DBHelper(DBHelper::getConnection());
 
 foreach ($deleteMapping as $param => $method) {
     if (isset($_GET[$param])) {
         $id = $_GET[$param];
-        $db = new DBHelper(DBHelper::getConnection());
         $db->$method($id);
         $_SESSION["message"] = "Successfully Deleted";
         break;
@@ -16,3 +18,5 @@ foreach ($deleteMapping as $param => $method) {
 }
 
 header("Location: index.php");
+exit();
+?>

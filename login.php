@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="assets/img/doggy.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
-        Dog Care Services
+    Login Page
     </title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
@@ -39,7 +39,7 @@
                     $_SESSION["user"] = $username;
                     header('Location: index.php');
                     $error = false;
-                    $_SESSION["message"] = "Successfully Logged in as $username";
+                    $_SESSION["message"] = "Successfully Logged in as $username";   
                 } else {
                     $error = true;
                 }
@@ -48,34 +48,43 @@
             ?>
 
 <body class="">
-    <div class="wrapper" style="padding: 0;">
-        <div class="main-panel" style="height: 100vh;">
-
-
-            <div class="card-body" align="center"><br>
-                <form method="post">
-                    <div class="column"><br>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Username</label><br>
-                                <input type="text" class="form-control" placeholder="Username" name="username">
-                            </div>
+<div class="wrapper" style="padding: 0;">
+    <div class="main-panel" style="height: 100vh;">
+        <div class="card-body" align="center"><br>
+            <?php if ($error) : ?>
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <span><b>Invalid Credentials:</b> Incorrect username or password.</span>
+                </div>
+            <?php endif; ?>
+            <form method="post">
+                <div class="column"><br>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Username</label><br>
+                            <input type="text" class="form-control" placeholder="Username" name="username">
                         </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" class="form-control" placeholder="Password" name="password">
-                            </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" placeholder="Password" name="password">
                         </div>
-                        <div class="row">
-                            <div class="update ml-auto mr-auto">
-                                <button type="submit" class="btn btn-info btn-md">Login</button>
-                                <div id="register-link" class="text-right">
-                                    <a href="register.php" class="text-info">Not yet registered? Click here.</a>&nbsp<a href="register.php" type="button">CANCEL</a>
-                                </div>
+                    </div>
+                    <div class="row">
+                        <div class="update ml-auto mr-auto">
+                            <button type="submit" class="btn btn-info btn-md">Login</button>
+                            <div id="register-link" class="text-right">
+                                <a href="register.php" class="text-info">Not yet registered? Click here.</a>&nbsp<a href="register.php" type="button">CANCEL</a>
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
             <?php require_once 'includes/footer.php' ?>

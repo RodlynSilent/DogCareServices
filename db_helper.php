@@ -9,27 +9,28 @@ class DBHelper extends Database
         $this->conn = $conn;
     }
 
-    function add_medicalrecord($dog_ID, $ownername, $customer_ID, $veterinarian_ID, $date_of_treatment)
+    function add_servicerecord($servicename, $servicedescription, $price)
     {
-        return $this->query("INSERT INTO tblmedicalrecord (id, dog_ID, ownername, customer_ID, veterinarian_ID, date_of_treatment)
-                                VALUES (NULL, '$dog_ID', '$ownername', $customer_ID, $veterinarian_ID, $date_of_treatment)");
+        return $this->query("INSERT INTO tblservicerecord (id, servicename, servicedescription, price)
+                                VALUES (NULL, '$servicename', '$servicedescription', '$price')");
     }
 
-    function get_medical_record()
+    function get_service_record()
     {
-        $sql = "SELECT * FROM tblmedicalrecord";
+        $sql = "SELECT * FROM tblservicerecord";
         return $this->query($sql);
     }
 
-    function delete_medical_record($id)
+    function delete_service_record($id)
     {
-        $sql = "DELETE FROM tblmedicalrecord WHERE id = $id";
+        $sql = "DELETE FROM tblservicerecord WHERE id = $id";
         $this->query($sql);
     }
 
-    function update_medical_record($id, $dog_ID, $ownername, $customer_ID, $veterinarian_ID, $date_of_treatment)
+
+    function update_servicerecord($id, $servicename, $servicedescription, $price)
     {
-        $sql = "UPDATE tblmedicalrecord SET dog_ID = '$dog_ID', ownername = '$ownername', customer_ID = $customer_ID, veterinarian_ID = $veterinarian_ID, date_of_treatment = $date_of_treatment WHERE id = $id";
+        $sql = "UPDATE tblservicerecord SET servicename = '$servicename', servicedescription = '$servicedescription', price = '$price' WHERE id = $id";
         return $this->query($sql);
     }
 
@@ -46,6 +47,19 @@ class DBHelper extends Database
             "date_of_treatment" => $row[5],
         );
     }
+
+    function get_service_record_id($id)
+    {
+        $sql = "SELECT * FROM tblservicerecord WHERE id = $id";
+        $rs = $this->query($sql);
+        $row = $rs->fetch_row();
+        return array(
+            "servicename" => $row[1],
+            "servicedescription" => $row[2],
+            "price" => $row[3]
+        );
+    }
+
     function login($username, $password)
     {
         $sql = "SELECT * FROM tbluseraccount WHERE username = \"$username\" and password = \"$password\"";
@@ -77,4 +91,6 @@ class DBHelper extends Database
         $row = $rs->fetch_row();
         return ["firstname" => $row[0], "lastname" => $row[1]];
     }
+
+
 }

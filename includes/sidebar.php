@@ -14,25 +14,17 @@
     </a>
   </div>
   <div class="sidebar-wrapper">
-    <ul class="nav">
+    <ul class="nav">  
       <li>
         <a href="index.php">
-          <i class="nc-icon nc-bank"></i>
-          <p>Home</p>
-        </a>
-      </li>
-
-
-      <li>
-        <a href="dashboard.php">
           <i class="nc-icon nc-tile-56"></i>
           <p>Dashboard</p>
         </a>
       </li>
       <li>
-        <a href="add_medicalrecord.php">
+        <a href="add_servicerecord.php">
           <i class="nc-icon nc-simple-add"></i>
-          <p>Add Medical Record</p>
+          <p>Add Service Record</p>
       </li>
       <li>
         <a href="edit_profile.php">
